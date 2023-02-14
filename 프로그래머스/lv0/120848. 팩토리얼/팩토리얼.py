@@ -1,7 +1,8 @@
 def solution(n):
-    fac = 1
-    for i in range(2, 10):
-        fac *= i
-        if fac == n: return i
-        elif fac > n: return i-1 
-    return 10
+    for i in range(1,14):
+        num = 1
+        for j in range(1,i+1):
+            num*=j
+        if num > n:
+            return i-1  
+            break
