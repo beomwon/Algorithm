@@ -1,2 +1,1 @@
-def solution(n):
-    return bin(n).count('1')
+solution = lambda n: bin(n).count('1')
