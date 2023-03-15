@@ -1,16 +1,13 @@
 def solution(keymap, targets):
     answer = []
-    kv = {}
-    for keys in keymap:
-        for index, key in enumerate(keys):
-            if key in kv.keys():
-                kv[key] = min(index+1, kv[key])
-            else:
-                kv[key] = index+1
-                
     for target in targets:
-        try:
-            answer.append(sum([kv[key] for key in target]))
-        except:
-            answer.append(-1)
+        count, isTrue = 0, True
+        for key in target:
+            min_index = min([101] + [k.find(key)+1 for k in keymap if k.find(key)+1 != 0])
+            if min_index == 101:
+                isTrue = False
+                break
+            count += min_index
+        answer.append(count if isTrue else -1)
+        
     return answer
