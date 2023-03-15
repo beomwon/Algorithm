@@ -1,12 +1,6 @@
 def solution(cards1, cards2, goal):
-    i1=0
-    i2=0
-    for v in goal:
-        
-        if i1 < len(cards1) and v == cards1[i1]:
-            i1 += 1
-        elif i2 < len(cards2) and v == cards2[i2]:
-            i2 += 1
-        else:
-            return 'No'
+    for target in goal:
+        if len(cards1) and target == cards1[0]: cards1.pop(0)
+        elif len(cards2) and target == cards2[0]: cards2.pop(0)
+        else: return 'No'
     return 'Yes'
