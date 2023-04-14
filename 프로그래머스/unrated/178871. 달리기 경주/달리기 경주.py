@@ -1,18 +1,12 @@
 def solution(players, callings):
-    rankDic = {}
-    playerDic = {}
+    rd = {k+1:v for k, v in enumerate(players)}
+    pd = {k:v+1 for v, k in enumerate(players)}
 
-    for idx, player in enumerate(players):
-        rankDic[idx + 1] = player
-        playerDic[player] = idx + 1
-
-    for cur_player in callings:
-        cur_rank = playerDic[cur_player]
-        prev_rank = cur_rank - 1
-        prev_player = rankDic[prev_rank]
-
-        rankDic[cur_rank - 1], rankDic[cur_rank] = rankDic[cur_rank], rankDic[cur_rank - 1]
-        playerDic[prev_player], playerDic[cur_player] = playerDic[cur_player], playerDic[prev_player]
-
-
-    return list(rankDic.values())
+    for cp in callings:
+        cr=pd[cp]
+        pp=rd[cr-1]
+        
+        rd[cr-1],rd[cr]=rd[cr],rd[cr-1]
+        pd[pp],pd[cp]=pd[cp],pd[pp]
+        
+    return list(rd.values())
