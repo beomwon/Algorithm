@@ -1,6 +1,6 @@
 # [level 0] 두 수의 곱 - 120804 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804?language=javascript) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804) 
 
 ### 성능 요약
 
