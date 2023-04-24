@@ -1,0 +1,1 @@
+solution=lambda t,n:int(bool(t%n==0))
