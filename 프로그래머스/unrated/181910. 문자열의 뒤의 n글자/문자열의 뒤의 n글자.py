@@ -1,0 +1,1 @@
+solution=lambda s,n:s[-n:]
