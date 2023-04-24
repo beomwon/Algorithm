@@ -1,0 +1,1 @@
+solution=lambda x:sum(x) if len(x)>10 else eval('*'.join(map(str,x)))
