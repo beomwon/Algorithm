@@ -1,0 +1,1 @@
+solution=lambda l,k:[a*k if k%2 else a+k for a in l]
