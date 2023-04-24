@@ -1,0 +1,1 @@
+solution=lambda l,n:int(n in l)
