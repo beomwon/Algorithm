@@ -1,0 +1,1 @@
+solution=lambda s,k:s*k
