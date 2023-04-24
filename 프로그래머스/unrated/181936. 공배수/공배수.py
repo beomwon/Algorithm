@@ -1,0 +1,1 @@
+solution=lambda t,n,m: int(not bool(t%n+t%m))
