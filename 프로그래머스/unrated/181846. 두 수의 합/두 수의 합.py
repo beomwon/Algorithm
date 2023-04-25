@@ -1,0 +1,1 @@
+solution=lambda a,b:str(eval(f'{a}+{b}'))
