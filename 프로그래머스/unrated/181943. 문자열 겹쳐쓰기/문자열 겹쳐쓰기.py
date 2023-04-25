@@ -1,0 +1,1 @@
+solution=lambda x,y,z:''.join([y[i-z] if z<=i<z+len(y) else x[i] for i in range(len(x))])
