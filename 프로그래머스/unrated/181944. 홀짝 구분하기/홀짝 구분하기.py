@@ -1,0 +1,1 @@
+print(n:=int(input()),'is odd' if n%2 else 'is even')
