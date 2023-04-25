@@ -1,0 +1,1 @@
+solution=lambda x:sum(5000 if 'tt' in o else 4500 for o in x)
