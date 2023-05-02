@@ -1,0 +1,1 @@
+solution = lambda a,b,f: a-(-1)**int(f)*b
