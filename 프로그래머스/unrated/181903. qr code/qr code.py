@@ -1,0 +1,1 @@
+solution=lambda q,r,c:c[r::q]
