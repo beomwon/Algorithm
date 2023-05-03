@@ -1,0 +1,1 @@
+solution=lambda s,p: s[:len(s)-s[::-1].index(p[::-1])]
