@@ -1,0 +1,1 @@
+solution=lambda m,p:sum([p == m[i:i+len(p)] for i in range(len(m))])
