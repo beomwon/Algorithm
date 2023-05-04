@@ -1,0 +1,1 @@
+solution=lambda a,n: [x+n if i%2==(len(a)+1)%2 else x for i,x in enumerate(a)]
