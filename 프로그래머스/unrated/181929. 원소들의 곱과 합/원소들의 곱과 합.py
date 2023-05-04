@@ -1,0 +1,1 @@
+solution=lambda x:int(sum(x)**2>eval('*'.join(map(str,x))))
