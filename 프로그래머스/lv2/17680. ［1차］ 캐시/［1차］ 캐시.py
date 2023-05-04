@@ -1,15 +1,14 @@
 def solution(cacheSize, cities):
-    answer = 0
+    time = 0
     cache = []
     for city in cities:
         city = city.lower()
         if city in cache[:cacheSize]:
-            answer += 1
+            time += 1
             cache.remove(city)
-            
         else:
-            answer += 5
+            time += 5
             
         cache.insert(0, city)
 
-    return answer
+    return time
