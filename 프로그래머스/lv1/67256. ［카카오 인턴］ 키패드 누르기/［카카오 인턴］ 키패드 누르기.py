@@ -1,19 +1,16 @@
-def solution(n, hand):
-    k, res = list('123456789*0#'), ''
-    hands = {'L':[3,0], 'R':[3,2]}
-    for v in n:
-        t = [k.index(str(v))//3, k.index(str(v))%3]
+def solution(numbers, hand):
+    k, yx, res = list('123456789*0#'), {'L':[3,0], 'R':[3,2]}, ''
+    for cur in numbers:
+        t = [k.index(str(cur))//3, k.index(str(cur))%3]
         
-        if v in [1,4,7]: res+='L'
-        elif v in [3,6,9]: res+='R'
+        if cur in [1,4,7]: res+='L'
+        elif cur in [3,6,9]: res+='R'
         else:
-            ld = abs(hands['L'][0]-t[0]) + abs(hands['L'][1]-t[1])
-            rd = abs(hands['R'][0]-t[0]) + abs(hands['R'][1]-t[1])
-            if ld == rd: res+=hand[0].upper()
-            elif ld < rd: res+='L'
-            else: res+='R'
+            ld = abs(yx['L'][0]-t[0]) + abs(yx['L'][1]-t[1])
+            rd = abs(yx['R'][0]-t[0]) + abs(yx['R'][1]-t[1])
+            res += 'L' if ld < rd else hand[0].upper() if ld == rd else 'R'
             
-        hands[res[-1]] = t
+        yx[res[-1]] = t
         
     return res
 
