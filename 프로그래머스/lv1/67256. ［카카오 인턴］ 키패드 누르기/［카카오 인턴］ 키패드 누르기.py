@@ -1,33 +1,50 @@
-def solution(numbers, hand):
-    left = [0,0]
-    right = [2,0]
-    answer = ''
-    keypad = [['*','7','4','1'],['0','8','5','2'],['#','9','6','3']]
-    
-    for temp in numbers:
-        for x in range(3):
-            for y in range(4):
-                if keypad[x][y] == str(temp):
-                    if x == 0:
-                        left = [x,y]
-                        answer += 'L'
-                    elif x == 1:
-                        left_dis = abs(left[0]-x) + abs(left[1]-y)
-                        right_dis = abs(right[0]-x) + abs(right[1]-y)
-                        if left_dis > right_dis:
-                            right = [x,y]
-                            answer += 'R'
-                        elif left_dis < right_dis:
-                            left = [x,y]
-                            answer += 'L'
-                        else:
-                            if hand == 'left':
-                                left = [x,y]
-                                answer += 'L'
-                            else:
-                                right = [x,y]
-                                answer += 'R'
-                    else:
-                        right = [x,y]
-                        answer += 'R'
-    return answer
+def solution(n, hand):
+    k, res = list('123456789*0#'), ''
+    hands = {'L':[3,0], 'R':[3,2]}
+    for v in n:
+        t = [k.index(str(v))//3, k.index(str(v))%3]
+        
+        if v in [1,4,7]: res+='L'
+        elif v in [3,6,9]: res+='R'
+        else:
+            ld = abs(hands['L'][0]-t[0]) + abs(hands['L'][1]-t[1])
+            rd = abs(hands['R'][0]-t[0]) + abs(hands['R'][1]-t[1])
+            if ld == rd: res+=hand[0].upper()
+            elif ld < rd: res+='L'
+            else: res+='R'
+            
+        hands[res[-1]] = t
+        
+    return res
+
+
+
+# def solution(n, hand):
+#     k, res = list('123456789*0#'), []
+#     for v in n:
+#         if v in [1,4,7]:
+#             res.append('L')
+#             l = [k.index(str(v))//3, k.index(str(v))%3]
+#         elif v in [3,6,9]:
+#             res.append('R')
+#             r = [k.index(str(v))//3, k.index(str(v))%3]
+#         else:
+#             p = [k.index(str(v))//3, k.index(str(v))%3]
+#             lv = abs(l[0]-p[0]) + abs(l[1]-p[1])
+#             rv = abs(r[0]-p[0]) + abs(r[1]-p[1])
+            
+#             if lv == rv:
+#                 if hand == 'right':
+#                     r = p
+#                     res.append('R')
+#                 else:
+#                     l = p
+#                     res.append('L')
+#             elif lv < rv:
+#                 l = p
+#                 res.append('L')
+#             else:
+#                 r = p
+#                 res.append('R')
+                
+#     return ''.join(res)
