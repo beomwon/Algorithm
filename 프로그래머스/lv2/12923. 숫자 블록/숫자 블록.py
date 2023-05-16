@@ -8,7 +8,6 @@ def solution(s, e):
         n, isadd = [1], True
         for d in range(2, min(int(i**0.5)+1, 10000000)):
             if i%d == 0:
-                print(d)
                 n.append(d)
                 if i/d <= 10000000:
                     answer.append(int(i/d))
