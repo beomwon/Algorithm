@@ -11,8 +11,7 @@ def solution(numbers):
         change = {'00':'10', '10':'01', '01':'11'} 
         r = r.replace(found['what'], change[found['what']], 1)
         
-        if r[-1] == '0':
-            r = r[:-1]
+        # if r[-1] == '0': r = r[:-1]
         answer.append(int(r[::-1],2))
             
     return answer
