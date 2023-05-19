@@ -1,18 +1,16 @@
 def solution(numbers):
     answer = []
     for num in numbers:
-        r = ('0'+bin(num)[2:])[::-1]
-        found = {'index': len(r), 'what': None}
+        r = bin(num)[2:][::-1] + '0'
+        i, v = len(r), None
         
-        for before in ['00','10','01']:
-            if before in r and r.index(before) < found['index']:
-                found = {'index': r.index(before), 'what': before}
+        for b in ['00','10','01']:
+            if b in r and r.index(b) < i:
+                i, v = r.index(b), b
                 
         change = {'00':'10', '10':'01', '01':'11'} 
-        r = r.replace(found['what'], change[found['what']], 1)
-        
-        # if r[-1] == '0': r = r[:-1]
-        answer.append(int(r[::-1],2))
+        r = r.replace(v, change[v], 1)[::-1]
+        answer.append(int(r,2))
             
     return answer
 
