@@ -13,6 +13,7 @@ def solution(m, n, b):
         for y in range(n-1):
             for x in range(m-1):
                 b[y][x][0], b[y][x+1][0], b[y+1][x][0], b[y+1][x+1][0] = b[y][x][2], b[y][x+1][2], b[y+1][x][2], b[y+1][x+1][2]
+                
         for i in range(len(b)):
             b[i].sort(key=lambda x: -x[0])
             
