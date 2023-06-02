@@ -1,22 +1,22 @@
 import math
+
 def solution(fees, records):
-    sales = {}
+    calculates = {}
     for record in records:
         time, vnum, info = record.split()
         hour, minute = map(int, time.split(':'))
         
-        if vnum in sales:
+        if vnum in calculates.keys():
             if info == 'IN':
-                sales[vnum][1:] = [hour*60 + minute, 1439]
+                calculates[vnum][1:] = [hour*60 + minute, 1439]
             else:
-                sales[vnum][0] += ((hour*60 + minute) - sales[vnum][1])
-                sales[vnum][1:] = [0, 0]
+                calculates[vnum][0] += ((hour*60 + minute) - calculates[vnum][1])
+                calculates[vnum][1:] = [0, 0]
         else:
-            sales[vnum] = [0, hour*60 + minute, 1439]
-        
+            calculates[vnum] = [0, hour*60 + minute, 1439]
         
     result = []
-    for vnum, fare in sales.items():
+    for vnum, fare in calculates.items():
         total = fare[0] + (fare[2] - fare[1])
         extra = math.ceil((total-fees[0])/fees[2])*fees[3]
         fee = fees[1] + (extra if extra > 0 else 0)
