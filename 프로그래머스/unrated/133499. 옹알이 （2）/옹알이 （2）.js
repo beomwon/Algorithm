@@ -6,16 +6,12 @@ function solution(babbling) {
         for (let j = 0; j < ableList.length; j++) {
             let able = ableList[j];
             if (b.indexOf(able.repeat(2)) === -1) {
-                b = b.replace(new RegExp(able, 'g'), ' ');
+                b = b.replaceAll(able, ' ');
             }
         }
-        if (b.replace(/ /g, '') === '') {
+        if (b.replaceAll(' ', '') === '') {
             answer += 1;
         }
     }
     return answer;
 }
-
-
-
-
