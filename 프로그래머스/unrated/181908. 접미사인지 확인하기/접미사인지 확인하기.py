@@ -1,0 +1,1 @@
+solution = lambda w, b: int(b in [w[i:] for i in range(len(w))])
