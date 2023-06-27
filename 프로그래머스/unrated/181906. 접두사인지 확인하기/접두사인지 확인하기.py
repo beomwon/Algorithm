@@ -1,0 +1,1 @@
+solution = lambda w, b: int(b in w and w.index(b) == 0)
