@@ -1,3 +1,4 @@
+
 def solution(keymap, targets):
     answer = []
     for target in targets:
