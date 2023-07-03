@@ -1,4 +1,3 @@
-
 def solution(keymap, targets):
     answer = []
     for target in targets:
@@ -9,6 +8,7 @@ def solution(keymap, targets):
                 isTrue = False
                 break
             count += min_index
+            
         answer.append(count if isTrue else -1)
         
     return answer
