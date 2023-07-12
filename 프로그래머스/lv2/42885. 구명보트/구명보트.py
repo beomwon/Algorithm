@@ -1,11 +1,10 @@
-def solution(people, limit):
-    people.sort()
-    front, end = 0, len(people)-1
-    count = 0
+def solution(p, l):
+    p.sort()
+    ans, front, end = 0, 0, len(p)-1
+    
     while front < end:
-        if people[front] + people[end] <= limit:
-            front += 1
+        if p[front] + p[end] <= l: front += 1
         end -= 1
-        count += 1
+        ans += 1
             
-    return count + (1 if front == end else 0)
+    return ans + int(front == end)
