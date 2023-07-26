@@ -1,0 +1,1 @@
+solution=lambda l,k,s,e: [int(x[s:s+e]) for x in l if k < int(x[s:s+e])]
