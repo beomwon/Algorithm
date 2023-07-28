@@ -1,0 +1,1 @@
+solution=lambda x:sorted([v for v in x.split('x') if v!=''])
