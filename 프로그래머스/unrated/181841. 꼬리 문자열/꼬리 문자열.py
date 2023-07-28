@@ -1,0 +1,1 @@
+solution=lambda a,b:''.join([v for v in a if b not in v])
