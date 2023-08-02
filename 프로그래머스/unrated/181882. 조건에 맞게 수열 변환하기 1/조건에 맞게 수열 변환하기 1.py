@@ -1,0 +1,1 @@
+solution=lambda x:[x/2 if x%2==0 and x>=50 else x*2 if x<50 and x%2 else x for x in x]
