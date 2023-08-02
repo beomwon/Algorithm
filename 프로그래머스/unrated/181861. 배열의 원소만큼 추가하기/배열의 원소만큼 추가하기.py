@@ -1,0 +1,1 @@
+solution=lambda x:sum([[v] * v for v in x], [])
