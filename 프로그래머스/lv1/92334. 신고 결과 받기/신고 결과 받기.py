@@ -6,7 +6,7 @@ def solution(id_list, report, k):
     
     for v in report:
         a, b = v.split()
-        answer[id_list.index(a)] += int(b in r)
+        if b in r: answer[id_list.index(a)] += 1
     
     return answer
             
