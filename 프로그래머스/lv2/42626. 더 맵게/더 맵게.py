@@ -1,7 +1,7 @@
 import heapq
 
 def solution(scoville, K):
-    scoville.sort()
+    # scoville.sort()
     heapq.heapify(scoville)
     answer = 0
     
