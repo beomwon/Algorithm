@@ -1,25 +1,24 @@
 # def solution(m, n, puddles):
-#     maps = [[0] * m for _ in range(n)]
-#     maps[0][0] = 1
-#     puddles = [[y-1,x-1] for y, x in puddles]
-#     for y in range(n):
-#         for x in range(m):
+#     maps = [[0] * (m+1) for _ in range(n+1)]
+#     maps[1][1] = 1
+#     for y in range(1, n+1):
+#         for x in range(1, m+1):
 #             if [y, x] not in puddles:
-#                 if y+1 < n and [y+1, x] not in puddles: maps[y+1][x] += maps[y][x]
-#                 if x+1 < m and [y, x+1] not in puddles: maps[y][x+1] += maps[y][x]
+#                 maps[y][x] = maps[y-1][x] + maps[y][x-1]
+#             else:
+#                 maps[y][x] = 0
 #     print(maps)
-#     return maps[-1][-1] % 1000000007
-
+#     return maps[y][x] % 1000000007
 
 def solution(m, n, puddles):
-    grid = [[0]*(m+1) for _ in range(n+1)]
-
-    for i in range(n+1):
-        for j in range(m+1):
-            if i == 0 or j == 0 or [j, i] in puddles:
-                grid[i][j] = 0
-            elif i == 1 and j == 1:
-                grid[i][j] = 1
+    a = [[0]*(m+1) for _ in range(n+1)]
+    for i, j in puddles:
+        a[j][i] = 1
+    a[0][1] = 1
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            if a[i][j]:
+                a[i][j] = 0
             else:
-                grid[i][j] = grid[i-1][j] + grid[i][j-1]
-    return (grid[n][m] % 1000000007)
+                a[i][j] = (a[i-1][j]+a[i][j-1]) % 1_000_000_007
+    return a[-1][-1]
